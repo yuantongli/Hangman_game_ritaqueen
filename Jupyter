@@ -1,1 +1,26 @@
+import random
+
+def generate_random_word():
+    word = "dog cat mouse deer snake".split()
+    randomW = random.choice(word)
+    return randomW
+
+
+def getLetter(guessed):           
+    guess = input("Please enter a letter: ")
+    guess = guess.lower()
+    return guess
+
+def display(word,rightLetters,guesses_left):
+    
+    print('{:n} chance Left'.format(guesses_left))    
+
+    print()
+    wordLong = '-'*len(word)
+    for i in range(len(word)):
+        if word[i] in rightLetters:
+            wordLong = wordLong[:i] + word[i] +wordLong[i+1:]
+    for i in wordLong:
+        print(i+' ',end='')
+    print()
 
